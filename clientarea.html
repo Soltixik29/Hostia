@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heexy - Klientská část</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .neon-text {
+            color: #39ff14; /* Neon zelená */
+            text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 40px #39ff14, 0 0 80px #39ff14;
+        }
+        .amoled-bg {
+            background-color: #000000; /* AMOLED černá */
+        }
+        .neon-border {
+            border: 2px solid #39ff14;
+            box-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 40px #39ff14;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (username === "") {
+                alert("Prosím, vyplňte uživatelské jméno.");
+                return false;
+            }
+            if (email === "" || !emailPattern.test(email)) {
+                alert("Prosím, vyplňte platný email.");
+                return false;
+            }
+            if (password === "") {
+                alert("Prosím, vyplňte heslo.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body class="amoled-bg text-white font-sans antialiased">
+    <header class="p-6 text-center">
+        <h1 class="text-4xl neon-text">Heexy</h1>
+    </header>
+    <main class="flex justify-center items-center h-screen">
+        <div class="w-full max-w-md p-8 neon-border rounded-lg">
+            <h2 class="text-3xl mb-6 text-center neon-text">Vytvořit účet</h2>
+            <form onsubmit="return validateForm()">
+                <div class="mb-4">
+                    <label class="block text-sm font-bold mb-2" for="username">
+                        <i class="fas fa-user neon-text"></i> Uživatelské jméno
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Uživatelské jméno">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-bold mb-2" for="email">
+                        <i class="fas fa-envelope neon-text"></i> Email
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-bold mb-2" for="password">
+                        <i class="fas fa-lock neon-text"></i> Heslo
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************">
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="bg-neon-text hover:bg-neon-text-dark text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        Vytvořit účet
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
