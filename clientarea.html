@@ -1,80 +1,62 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heexy - Klientská část</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        .neon-text {
-            color: #39ff14; /* Neon zelená */
-            text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 40px #39ff14, 0 0 80px #39ff14;
-        }
-        .amoled-bg {
-            background-color: #000000; /* AMOLED černá */
-        }
-        .neon-border {
-            border: 2px solid #39ff14;
-            box-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 40px #39ff14;
-        }
-    </style>
-    <script>
-        function validateForm() {
-            var username = document.getElementById("username").value;
-            var email = document.getElementById("email").value;
-            var password = document.getElementById("password").value;
-            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            if (username === "") {
-                alert("Prosím, vyplňte uživatelské jméno.");
-                return false;
-            }
-            if (email === "" || !emailPattern.test(email)) {
-                alert("Prosím, vyplňte platný email.");
-                return false;
-            }
-            if (password === "") {
-                alert("Prosím, vyplňte heslo.");
-                return false;
-            }
-            return true;
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heexy - Client Account Area</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Custom AMOLED Dark Theme */
+    body {
+      background-color: #000000;
+      color: #ffffff;
+    }
+    .sidebar {
+      background-color: #1c1c1e;
+    }
+    .sidebar a:hover {
+      background-color: #2c2c2e;
+    }
+  </style>
 </head>
-<body class="amoled-bg text-white font-sans antialiased">
-    <header class="p-6 text-center">
-        <h1 class="text-4xl neon-text">Heexy</h1>
-    </header>
-    <main class="flex justify-center items-center h-screen">
-        <div class="w-full max-w-md p-8 neon-border rounded-lg">
-            <h2 class="text-3xl mb-6 text-center neon-text">Vytvořit účet</h2>
-            <form onsubmit="return validateForm()">
-                <div class="mb-4">
-                    <label class="block text-sm font-bold mb-2" for="username">
-                        <i class="fas fa-user neon-text"></i> Uživatelské jméno
-                    </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Uživatelské jméno">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-sm font-bold mb-2" for="email">
-                        <i class="fas fa-envelope neon-text"></i> Email
-                    </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email">
-                </div>
-                <div class="mb-6">
-                    <label class="block text-sm font-bold mb-2" for="password">
-                        <i class="fas fa-lock neon-text"></i> Heslo
-                    </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************">
-                </div>
-                <div class="flex items-center justify-between">
-                    <button class="bg-neon-text hover:bg-neon-text-dark text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                        Vytvořit účet
-                    </button>
-                </div>
-            </form>
-        </div>
-    </main>
+<body class="font-sans antialiased">
+
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="sidebar w-64 py-4 px-2 flex flex-col">
+      <div class="text-center mb-6">
+        <h1 class="text-2xl font-bold">Heexy</h1>
+      </div>
+      <nav class="flex-grow">
+        <a href="#" class="flex items-center py-2 px-3 rounded hover:bg-gray-700 transition-colors">
+          <svg class="w-6 h-6 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          Dashboard
+        </a>
+        <a href="#" class="flex items-center py-2 px-3 rounded hover:bg-gray-700 transition-colors">
+          <svg class="w-6 h-6 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18m-9 5h9"></path></svg>
+          Account Settings
+        </a>
+        <a href="#" class="flex items-center py-2 px-3 rounded hover:bg-gray-700 transition-colors">
+          <svg class="w-6 h-6 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8h-2a3 3 0 01-3-3V5a3 3 0 013-3h2a3 3 0 013 3v10a3 3 0 01-3 3z"></path></svg>
+          Notifications
+        </a>
+        <a href="#" class="flex items-center py-2 px-3 rounded hover:bg-gray-700 transition-colors">
+          <svg class="w-6 h-6 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6 1a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          Activity Log
+        </a>
+        <a href="#" class="flex items-center py-2 px-3 rounded hover:bg-gray-700 transition-colors">
+          <svg class="w-6 h-6 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          Logout
+        </a>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-6">
+      <h2 class="text-3xl font-bold mb-4">Welcome to Heexy</h2>
+      <p>This is your client account area. Use the menu on the left to navigate through different sections.</p>
+    </div>
+  </div>
+
 </body>
 </html>
